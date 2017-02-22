@@ -3,14 +3,18 @@ var energy = 0; //starting value of energy
 var singleShake = 0;
 var maxEnergy= 500; //max energy for eathquake
 
-var myImage1;
-var myImage2;
+var myChile;
+var myMexico;
+var myIndonesia;
+var myJapon;
 var Cover;
 
 function preload() {
    Cover = loadImage("images/gif-a-2-orizzontale.gif");
-   myImage1 = loadImage("images/prova1.jpg");    
-   myImage2 = loadImage("images/prova2.jpg");
+   myImage1 = loadImage("images/chile.png");    
+   myImage2 = loadImage("images/mexico.png");
+   myImage3 = loadImage("images/indonesia.png");
+   myImage4 = loadImage("images/japon.png");
 }
     
 function setup(){
@@ -101,15 +105,29 @@ function draw(){
    
     if(touchX > width/1.3 - width/7 && touchX < width/1.3 + width/7 && touchY > height/9 - width/7 && touchY <  height/9 + width/7){   
        
-    if (magnitude <= 5){
+    if (magnitude <= 6){
          
-         image(myImage1,0,0,windowWidth,windowHeight);
-         
-     } else {
-         
-         image(myImage2,0,0,windowWidth,windowHeight);
-     } 
+      textSize(height/10);
+      textAlign(CENTER);
+      textStyle(BOLD);
+      text("THAT´S NOT ENOUGH FOR AN EARTHQUAKE",width/2, height - height/2)
+      textSize(height/20);
+      text("10",width/2, height - height/6.7)
+      energy = maxEnergy;
+      background(204);
        
+       
+         
+     } else if (magnitude > 6 && magnitude <= 7) {
+         
+         image(myImage4,0,0,windowWidth,windowHeight);
+     } 
+       else if (magnitude >7 && magnitude <=8){
+         image(myImage4,0,0,windowWidth,windowHeight);
+     } 
+       else {
+         image(myImage3,0,0,windowWidth,windowHeight);
+     } 
    }   
     
    if(touchX > width/4 - width/7 && touchX < width/4 + width/7 && touchY > height/9 - width/7 && touchY <  height/9 + width/7){   
